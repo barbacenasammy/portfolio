@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #000000;
+	--foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+.social_icons {
+	background-color: #d8b4fe;
+	color: black;
+	border-radius: 2px;
+}
+
+.social_icons:hover {
+	background-color: #ffffff;
+}
+
+.baseButton {
+	border-radius: 0.375rem;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.primary_button {
+	color: #000000;
+	background-color: #ffffff;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.transparent_background_button {
+	color: white;
+	background-color: transparent;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.mySwiper .swiper-slide {
+	width: auto !important;
+}
+
+.mySwiper .swiper-wrapper {
+	max-width: 97vw;
+}
