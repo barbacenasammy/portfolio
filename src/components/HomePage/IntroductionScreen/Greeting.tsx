@@ -111,7 +111,7 @@ const Greeting: FC = ({}) => {
 					Download CV
 				</button>
 				<a
-					href="#Projects"
+					href="#projects"
 					className="w-[120px] text-center pt-2.5 rounded-md bg-[#2C3E50]">
 					Projects
 				</a>
