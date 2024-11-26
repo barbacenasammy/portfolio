@@ -1,6 +1,6 @@
 import type { FC } from "react";
-import { Swiper } from "swiper/react";
-import React from "react";
+import { Swiper, SwiperRef } from "swiper/react";
+import React, { useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,9 +10,15 @@ const CarouselContainer: FC<{
 	children: React.ReactNode;
 	direction: "ltr" | "rtl";
 }> = ({ children, direction = "rtl" }) => {
+	const swiperRef = useRef<SwiperRef | null>(null);
+
 	return (
-		<div style={{ direction: direction }}>
+		<div
+			style={{ direction: direction }}
+			onMouseEnter={() => swiperRef.current?.swiper.autoplay.stop()}
+			onMouseLeave={() => swiperRef.current?.swiper.autoplay.start()}>
 			<Swiper
+				ref={swiperRef}
 				modules={[Autoplay]}
 				loop={true}
 				spaceBetween={20}
@@ -20,7 +26,7 @@ const CarouselContainer: FC<{
 				navigation={true}
 				className="mySwiper"
 				slidesPerView="auto"
-				speed={7000}
+				speed={4000}
 				autoplay={{
 					delay: 0,
 					disableOnInteraction: false,
