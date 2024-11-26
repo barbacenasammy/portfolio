@@ -36,7 +36,7 @@ const Projects = [
 		title: "PIF Fwen",
 		image: "/projects/fwen.png",
 		alt: "fwen",
-		link: "https://my.fwen.io/welcome",
+		link: "https://app.fwen.io/",
 		contributions: [
 			"Referral System",
 			"Web 3 Wallet Connection",
@@ -47,7 +47,7 @@ const Projects = [
 		title: "PIF Fwen AI",
 		image: "/projects/fwen-ai.png",
 		alt: "fwen-ai",
-		link: "https://app.fwen.io/",
+		link: "https://my.fwen.io/welcome",
 		contributions: [
 			"AI Integration",
 			"Elevenlabs Integration",
@@ -68,7 +68,7 @@ const Projects2 = [
 		title: "PIF Fwen",
 		image: "/projects/fwen.png",
 		alt: "fwen",
-		link: "https://my.fwen.io/welcome",
+		link: "https://app.fwen.io/",
 		contributions: [
 			"Referral System",
 			"Web 3 Wallet Connection",
@@ -79,7 +79,7 @@ const Projects2 = [
 		title: "PIF Fwen AI",
 		image: "/projects/fwen-ai.png",
 		alt: "fwen-ai",
-		link: "https://app.fwen.io/",
+		link: "https://my.fwen.io/welcome",
 		contributions: [
 			"AI Integration",
 			"Elevenlabs Integration",
