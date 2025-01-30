@@ -13,7 +13,7 @@ const MobileMenu = () => {
 	return (
 		<div
 			className={`w-full absolute duration-300 flex flex-col top-0 z-50 md:hidden h-screen transition-transform bg-black pt-10 ${
-				isMobileMenuOpen ? "translate-x-0" : "translate-x-full "
+				isMobileMenuOpen ? "translate-x-0 block" : "translate-x-full hidden"
 			}`}>
 			<div className="flex-row flex justify-between items-center self-center gap-1 mt-2 mb-5 md:mt-0 ">
 				<h1
