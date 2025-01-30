@@ -46,7 +46,7 @@ const AboutMe = () => {
 					intuitive, impactful digital solutions. Let’s bring your vision to
 					life!
 				</p>
-				<div className="flex flex-row justify-center items-center gap-5 mt-10 mb-10">
+				<div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10 mb-10 px-10 md:px-0">
 					<MatrixButton onClick={handleDownload}>Resume</MatrixButton>
 					<MatrixButton
 						onClick={() => setActivePageIndex(1)}
