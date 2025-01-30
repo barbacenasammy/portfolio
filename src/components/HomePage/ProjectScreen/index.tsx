@@ -284,7 +284,9 @@ export type ProjectType = (typeof Projects)[0];
 const ProjectScreen = ({}) => {
 	return (
 		<div className="w-full  lg:p-0 h-auto  flex flex-col gap-5  px-10 ">
-			<h1 className="text-[30px] lg:text-[60px] mt-5 ml-10">Projects</h1>
+			<h1 className="text-[25px] lg:text-[40px] mt-5 ml-10 font-source-code">
+				Code in the Matrix
+			</h1>
 			<div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-1  px-10">
 				{Projects.map((project, index) => {
 					return <ProjectCards key={index} project={project} />;
