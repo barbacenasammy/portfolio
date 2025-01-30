@@ -1,36 +1,59 @@
 "use client";
-import CarouselContainer from "@/components/Carousel/CarouselContainer";
-import Image from "next/image";
-import { MdOpenInNew } from "react-icons/md";
-import { useInView } from "react-intersection-observer";
-import { SwiperSlide } from "swiper/react";
+import {
+	SiFigma,
+	SiFirebase,
+	SiGraphite,
+	SiGraphql,
+	SiMongodb,
+	SiNestjs,
+	SiNextdotjs,
+	SiOpenai,
+	SiPayloadcms,
+	SiSolana,
+	SiTelegram,
+	SiWeb3Dotjs,
+} from "react-icons/si";
+import ProjectCards from "./ProjectCards";
 
 const Projects = [
 	{
-		title: "Presale",
-		image: "/projects/presale.png",
-		alt: "presale",
-		link: "https://devnet-presale.fwen.io/",
-		contributions: [
-			"UI Conversion",
-			"Backend Features",
-			"Solana Web3 Wallet Connection",
-			"Solana Smart Contract",
-		],
-	},
-	{
-		title: "PIF Quests",
-		image: "/projects/quest.png",
-		alt: "quests",
-		link: "https://v1.playitfwd.io/",
-		contributions: ["Admin CMS", "UI Conversion", "Backend Features"],
-	},
-	{
-		title: "PIF Games",
+		title: "Fwen.IO",
 		image: "/projects/pif-games.png",
-		alt: "games",
-		link: "https://app.pifnation.com/games",
+		alt: "telegram",
+		link: "https://t.me/my_fwen_bot",
 		contributions: ["Admin CMS", "UI Conversion", "Backend Features"],
+		techStacks: [
+			<div key="SiNextdotjs" className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
+			<div key="SiNestjs" className="relative group cursor-default ">
+				<SiNestjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Nest JS
+				</span>
+			</div>,
+			<div key={"SiOpenai"} className="relative group cursor-default ">
+				<SiOpenai className="text-lg" />
+				<span className="absolute -top-5  -left-2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Open AI
+				</span>
+			</div>,
+			<div key={"SiTelegram"} className="relative group cursor-default ">
+				<SiTelegram className="text-lg" />
+				<span className="absolute -top-5  -left-2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Telegram
+				</span>
+			</div>,
+		],
 	},
 	{
 		title: "PIF Fwen",
@@ -41,6 +64,32 @@ const Projects = [
 			"Referral System",
 			"Web 3 Wallet Connection",
 			"Backend Features",
+		],
+		techStacks: [
+			<div key={"SiGraphite"} className="relative group cursor-default ">
+				<SiGraphite className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Viral Loops
+				</span>
+			</div>,
+			<div key={"SiNextdotjs"} className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key="SiNestjs" className="relative group cursor-default ">
+				<SiNestjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Nest JS
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
 		],
 	},
 	{
@@ -53,37 +102,31 @@ const Projects = [
 			"Elevenlabs Integration",
 			"Backend Features",
 		],
-	},
-	{
-		title: "Payload CMS",
-		image: "/projects/payload-cms.png",
-		alt: "payload-cms",
-		link: "https://fwen-payload-cms-569790412483.asia-southeast1.run.app/admin/login",
-		contributions: ["AI Fine-tuning", "Custom Components", "Backend Features"],
-	},
-];
-
-const Projects2 = [
-	{
-		title: "PIF Fwen",
-		image: "/projects/fwen.png",
-		alt: "fwen",
-		link: "https://app.fwen.io/",
-		contributions: [
-			"Referral System",
-			"Web 3 Wallet Connection",
-			"Backend Features",
-		],
-	},
-	{
-		title: "PIF Fwen AI",
-		image: "/projects/fwen-ai.png",
-		alt: "fwen-ai",
-		link: "https://my.fwen.io/welcome",
-		contributions: [
-			"AI Integration",
-			"Elevenlabs Integration",
-			"Backend Features",
+		techStacks: [
+			<div key={"SiNextdotjs"} className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key="SiNestjs" className="relative group cursor-default ">
+				<SiNestjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Nest JS
+				</span>
+			</div>,
+			<div key={"SiOpenai"} className="relative group cursor-default ">
+				<SiOpenai className="text-lg" />
+				<span className="absolute -top-5  -left-2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Open AI
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
 		],
 	},
 	{
@@ -92,6 +135,32 @@ const Projects2 = [
 		alt: "payload-cms",
 		link: "https://fwen-payload-cms-569790412483.asia-southeast1.run.app/admin/login",
 		contributions: ["AI Fine-tuning", "Custom Components", "Backend Features"],
+		techStacks: [
+			<div key={"SiOpenai"} className="relative group cursor-default ">
+				<SiOpenai className="text-lg" />
+				<span className="absolute -top-5  -left-2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Open AI
+				</span>
+			</div>,
+			<div key={"SiPayloadcms"} className="relative group cursor-default ">
+				<SiPayloadcms className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Payload CMS
+				</span>
+			</div>,
+			<div key="SiNestjs" className="relative group cursor-default ">
+				<SiNestjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Nest JS
+				</span>
+			</div>,
+			<div key={"SiMongodb"} className="relative group cursor-default ">
+				<SiMongodb className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Mongodb
+				</span>
+			</div>,
+		],
 	},
 	{
 		title: "Fwen Presale",
@@ -101,8 +170,45 @@ const Projects2 = [
 		contributions: [
 			"UI Conversion",
 			"Backend Features",
-			"Solana Web3 Wallet Connection",
-			"Solana Smart Contract",
+			"Solana Web3 Wallet / Smart Contract",
+		],
+		techStacks: [
+			<div key={"SiWeb3Dotjs"} className="relative group cursor-default ">
+				<SiWeb3Dotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Web3
+				</span>
+			</div>,
+			<div key={"SiSolana"} className="relative group cursor-default ">
+				<SiSolana className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Solana
+				</span>
+			</div>,
+			<div key={"SiFirebase"} className="relative group cursor-default ">
+				<SiFirebase className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Firebase
+				</span>
+			</div>,
+			<div key={"SiNextdotjs"} className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key={"SiGraphql"} className="relative group cursor-default ">
+				<SiGraphql className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					GraphQL
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
 		],
 	},
 	{
@@ -111,6 +217,32 @@ const Projects2 = [
 		alt: "quests",
 		link: "https://v1.playitfwd.io/",
 		contributions: ["Admin CMS", "UI Conversion", "Backend Features"],
+		techStacks: [
+			<div key={"SiNextdotjs"} className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key={"SiGraphql"} className="relative group cursor-default ">
+				<SiGraphql className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					GraphQL
+				</span>
+			</div>,
+			<div key={"SiFirebase"} className="relative group cursor-default ">
+				<SiFirebase className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Firebase
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
+		],
 	},
 	{
 		title: "PIF Games",
@@ -118,92 +250,47 @@ const Projects2 = [
 		alt: "games",
 		link: "https://app.pifnation.com/games",
 		contributions: ["Admin CMS", "UI Conversion", "Backend Features"],
+		techStacks: [
+			<div key={"SiNextdotjs"} className="relative group cursor-default ">
+				<SiNextdotjs className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Next JS
+				</span>
+			</div>,
+			<div key={"SiGraphql"} className="relative group cursor-default ">
+				<SiGraphql className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					GraphQL
+				</span>
+			</div>,
+			<div key={"SiFirebase"} className="relative group cursor-default ">
+				<SiFirebase className="text-lg text-gray-400" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Firebase
+				</span>
+			</div>,
+			<div key="SiFigma" className="relative group cursor-default ">
+				<SiFigma className="text-lg" />
+				<span className="absolute -top-5  left-1/2 -translate-x-1/2 z-50 hidden whitespace-nowrap rounded text-[10px] px-2 py-0 bg-gray-700 text-white opacity-0 transition-opacity duration-200 group-hover:block group-hover:opacity-100">
+					Figma
+				</span>
+			</div>,
+		],
 	},
 ];
 
-const ProjectScreen = ({}) => {
-	const [ref] = useInView({
-		threshold: 0.5,
-		triggerOnce: false,
-	});
+export type ProjectType = (typeof Projects)[0];
 
+const ProjectScreen = ({}) => {
 	return (
-		<section
-			ref={ref}
-			id="projects"
-			className="w-full lg:p-0 h-auto min-h-screen flex flex-col gap-5 ">
-			<h1 className="text-[30px] lg:text-[60px] mt-20">Projects</h1>
-			<CarouselContainer direction="rtl">
+		<div className="w-full  lg:p-0 h-auto  flex flex-col gap-5  px-10 ">
+			<h1 className="text-[30px] lg:text-[60px] mt-5 ml-10">Projects</h1>
+			<div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-1  px-10">
 				{Projects.map((project, index) => {
-					return (
-						<SwiperSlide key={index}>
-							<div
-								style={{
-									direction: "ltr",
-								}}
-								className="relative h-56 group w-[400px] overflow-hidden ">
-								<Image
-									src={project.image}
-									fill
-									alt={project.alt}
-									objectFit="cover"
-								/>
-								<div className="relative z-40 transform w-full h-full border-2 flex flex-col border-gray-900 transition-all delay-100 p-5 duration-200 ease-in group-hover:translate-y-0 -translate-y-full bg-gray-900 bg-opacity-70 backdrop-blur-sm ">
-									<h1 className="font-bold text-2xl text-blue-200 ">
-										{project.title}
-									</h1>
-									<h1 className="font-base text-gray-200 ">Contributions</h1>
-									<ol className="text-left list-disc text-sm ml-5 text-[12px] lg:text-[14px] font-thin text-gray-200">
-										{project.contributions.map((contribution, index) => {
-											return (
-												<li key={index} className="text-left">
-													{contribution}
-												</li>
-											);
-										})}
-									</ol>
-									<MdOpenInNew
-										onClick={() => window.open(project.link, "_blank")}
-										className="absolute text-lg top-4 right-4 text-center rounded-md text-white cursor-pointer transition-all duration-200 hover:scale-110"
-									/>
-								</div>
-							</div>
-						</SwiperSlide>
-					);
+					return <ProjectCards key={index} project={project} />;
 				})}
-			</CarouselContainer>
-			<CarouselContainer direction="ltr">
-				{Projects2.map((project, index) => {
-					return (
-						<SwiperSlide key={index}>
-							<div className="relative h-56 group w-[400px] overflow-hidden bg-gray-900">
-								<Image
-									src={project.image}
-									fill
-									alt={project.alt}
-									objectFit="cover"
-								/>
-								<div className="relative z-40 transform w-full h-full border-2 border-gray-900 transition-all delay-100 p-5 duration-200 ease-in group-hover:translate-y-0 -translate-y-full bg-gray-900 bg-opacity-70 backdrop-blur-sm ">
-									<h1 className="font-bold text-2xl text-blue-200">
-										{project.title}
-									</h1>
-									<h1 className="font-base text-gray-200">Contributions</h1>
-									<ol className="list-disc text-sm ml-5 text-[12px] lg:text-[14px] font-thin text-gray-200">
-										{project.contributions.map((contribution, index) => {
-											return <li key={index}>{contribution}</li>;
-										})}
-									</ol>
-									<MdOpenInNew
-										onClick={() => window.open(project.link, "_blank")}
-										className="absolute text-lg top-4 right-4 text-center rounded-md text-white cursor-pointer transition-all duration-200 hover:scale-110"
-									/>
-								</div>
-							</div>
-						</SwiperSlide>
-					);
-				})}
-			</CarouselContainer>
-		</section>
+			</div>
+		</div>
 	);
 };
 export default ProjectScreen;

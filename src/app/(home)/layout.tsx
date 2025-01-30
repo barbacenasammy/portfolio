@@ -1,5 +1,5 @@
 import HomePageContainer from "@/components/Containers/HomePageContainer";
-import MenuBar from "@/components/Navigations/MenuBar";
+import MenuBarV2 from "@/components/Navigations/MenuBarV2";
 
 export default function HomeLayout({
 	children,
@@ -8,7 +8,7 @@ export default function HomeLayout({
 }>) {
 	return (
 		<HomePageContainer>
-			<MenuBar />
+			<MenuBarV2 />
 			{children}
 		</HomePageContainer>
 	);

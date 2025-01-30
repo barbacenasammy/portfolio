@@ -1,16 +1,38 @@
+import PageProvider from "@/context/PathProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-	src: "./fonts/GeistVF.woff",
-	variable: "--font-geist-sans",
-	weight: "100 900",
+const matemasie = localFont({
+	src: "./fonts/Matemasie.ttf",
+	variable: "--font-matemasie",
+	weight: "100",
+	display: "swap",
+	style: "normal",
 });
-const geistMono = localFont({
-	src: "./fonts/GeistMonoVF.woff",
-	variable: "--font-geist-mono",
-	weight: "100 900",
+
+const anonymous = localFont({
+	src: "./fonts/Anonymous.ttf",
+	variable: "--font-anonymous",
+	weight: "100",
+	display: "swap",
+	style: "normal",
+});
+
+const matrix = localFont({
+	src: "./fonts/Matrix.ttf",
+	variable: "--font-matrix",
+	weight: "100",
+	display: "swap",
+	style: "normal",
+});
+
+const sourceCode = localFont({
+	src: "./fonts/sourceCode.ttf",
+	variable: "--font-sourceCode",
+	weight: "100",
+	display: "swap",
+	style: "normal",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +51,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		site: "@yourTwitterHandle", // Replace with your Twitter handle if available
-		title: "Sammy Barbacena | Full Stack Web Developer",
+		title: "Sammy Barbacena | Full Stack Developer",
 		description:
 			"Check out my portfolio as a full stack developer with expertise in frontend and backend technologies.",
 	},
@@ -41,11 +63,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center min-w-screen`}>
-				{children}
-			</body>
+		<html
+			lang="en"
+			className={`${matemasie.variable} ${sourceCode.variable} ${anonymous.variable} ${matrix.variable}`}>
+			<PageProvider>
+				<body className={`flex flex-col antialiased`}>{children}</body>
+			</PageProvider>
 		</html>
 	);
 }

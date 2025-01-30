@@ -14,6 +14,10 @@
 	}
 }
 
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
 body {
 	color: var(--foreground);
 	background: var(--background);

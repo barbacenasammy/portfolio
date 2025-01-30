@@ -1,9 +1,10 @@
+import CustomSelect from "@/components/Form/Select";
 import TextInput from "@/components/Form/TextInput";
+import { yupResolver } from "@hookform/resolvers/yup";
 import type { FC } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { FaTelegramPlane } from "react-icons/fa";
 import * as yup from "yup";
-import CustomSelect from "@/components/Form/Select";
 
 const Positions = [
 	"Full Stack Developer",
@@ -69,19 +70,41 @@ const ContactSection: FC = ({}) => {
 		}
 	};
 	return (
-		<section id="Contact" className="w-full h-auto min-h-screen text-white">
-			<h1 className="text-[30px] lg:text-[60px] pt-24">Contact Me</h1>
+		<div className="w-full h-auto min-h-screen text-white px-10">
+			<h1 className="text-[30px] lg:text-[40px] pt-24 font-source-code">
+				Let’s Build <br />
+				<div className="overflow-hidden h-[60px]  flex flex-row gap-2">
+					Something{" "}
+					<div className="h-[40px] overflow-hidden mt-2">
+						<ul className="list-none animate-change   font-bold ">
+							{["Epic!", "Amazing!", "Powerful!"].map((item, index) => (
+								<li
+									key={index}
+									className={` leading-[40px] overflow-hidden ${
+										index === 0
+											? "text-[#ff073a]"
+											: index === 1
+											? "text-cyan-400"
+											: "text-green-400"
+									}`}>
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</h1>
 
 			<form
 				onSubmit={handleSubmit(onSubmit, onError)}
-				className="flex flex-col gap-10">
+				className="flex flex-col gap-10 max-w-[500px]">
 				<div>
 					<TextInput
 						isRequired={true}
 						errors={errors}
 						name="company"
 						register={register}
-						placeholder="Company"
+						placeholder="Your name"
 					/>
 				</div>
 				<div>
@@ -90,7 +113,7 @@ const ContactSection: FC = ({}) => {
 						errors={errors}
 						name="email"
 						register={register}
-						placeholder="Email"
+						placeholder="Your Email"
 					/>
 				</div>
 				<div>
@@ -114,11 +137,12 @@ const ContactSection: FC = ({}) => {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="w-[180px] text-center py-2  bg-blue-900">
+					className="w-[180px] text-black text-center py-2 flex flex-row justify-center items-center gap-2 rounded-full  bg-green-400">
 					{isSubmitting ? "Sending..." : "Send Message"}
+					<FaTelegramPlane />
 				</button>
 			</form>
-		</section>
+		</div>
 	);
 };
 export default ContactSection;
