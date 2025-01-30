@@ -10,8 +10,8 @@ const MenuBarV2 = ({}) => {
 	const [shouldReanimate, setShouldReanimate] = useState(false);
 	return (
 		<div
-			className={`w-full max-w-screen-2xl hidden lg:flex z-30  h-[70px] bg-black flex-row justify-between items-center px-10`}>
-			<div className="flex flex-row justify-between items-center gap-1">
+			className={`w-full max-w-screen-2xl flex z-30  h-[70px] bg-black flex-col md:flex-row justify-between items-center px-10`}>
+			<div className="flex-row justify-between items-center gap-1 mt-2 md:mt-0 ">
 				<h1
 					onMouseDown={() => setActivePageIndex(0)}
 					className="font-source-code text-2xl cursor-pointer font-extrabold text-[#9ffd32] ml-3 ">
@@ -19,7 +19,7 @@ const MenuBarV2 = ({}) => {
 				</h1>
 				<GiSpiderWeb className="text-[#9ffd32] text-4xl mt-2 hidden " />
 			</div>
-			<div className="flex flex-row justify-between items-center w-1/2 max-w-[400px]">
+			<div className="flex flex-row justify-between items-center  w-full md:w-1/2 max-w-[600px]">
 				{MENUS.map((menu, index: number) => {
 					const isActive = activePageIndex === index;
 					return (
