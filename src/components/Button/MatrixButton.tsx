@@ -4,7 +4,7 @@ const MatrixButton = <T extends React.ElementType = "button">(
 	}
 ) => {
 	const { children, className, variant = "primary", ...rest } = props;
-	const baseStyles = ` bg-gradient-to-r  px-10 rounded-full py-2 shadow-lg`;
+	const baseStyles = ` w-full bg-gradient-to-r  px-10 rounded-full py-2 shadow-lg`;
 	const variantStyles =
 		variant === "primary"
 			? `from-green-400 to-green-900 text-white shadow-green-400/50 `

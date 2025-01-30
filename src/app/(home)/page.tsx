@@ -16,15 +16,15 @@ export default function Home() {
 	];
 
 	return (
-		<div className="relative w-full min-h-[calc(100vh-70px)] h-auto z-10 ">
+		<div className="relative w-full min-h-[calc(100vh-70px)] h-auto z-10 overflow-hidden">
 			<div
-				className="absolute w-full inset-0 flex transition-transform duration-500 ease-in-out"
+				className="absolute w-full h-full flex transition-transform duration-500 ease-in-out"
 				style={{
 					transform: `translateX(-${activePageIndex * 100}%)`,
 				}}>
 				{pages.map((customPage, index) => (
 					<div key={index} className={`w-full h-auto  flex-shrink-0 `}>
-						{index === activePageIndex && customPage}
+						{customPage}
 					</div>
 				))}
 			</div>

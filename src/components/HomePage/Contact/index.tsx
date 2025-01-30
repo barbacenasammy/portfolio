@@ -71,10 +71,10 @@ const ContactSection: FC = ({}) => {
 	};
 	return (
 		<div className="w-full h-auto min-h-screen text-white px-10">
-			<h1 className="text-[30px] lg:text-[40px] pt-24 font-source-code">
-				Let’s Build <br />
-				<div className="overflow-hidden h-[60px]  flex flex-row gap-2">
-					Something{" "}
+			<h1 className="text-[20px] lg:text-[40px] pt-24 font-source-code">
+				Let’s Build <br className="hidden md:block" />
+				<div className="overflow-hidden text-[20px] lg:text-[40px] h-[60px]  flex flex-row gap-2">
+					<span className="mt-3 lg:mt-0">Something </span>
 					<div className="h-[40px] overflow-hidden mt-2">
 						<ul className="list-none animate-change   font-bold ">
 							{["Epic!", "Amazing!", "Powerful!"].map((item, index) => (

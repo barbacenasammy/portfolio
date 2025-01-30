@@ -1,36 +1,38 @@
 "use client";
 import { MENUS } from "@/contants/menus";
 import { usePage } from "@/context/PathProvider";
-import { useState } from "react";
-import { GiHamburgerMenu, GiSpiderWeb } from "react-icons/gi";
+import type { FC } from "react";
 import MatrixTextAnimation from "../TextAnimation/MatrixTextAnimation";
 
-const MenuBarV2 = ({}) => {
+interface MobileMenuProps {}
+
+const MobileMenu: FC<MobileMenuProps> = ({}) => {
 	const {
+		isMobileMenuOpen,
+		activePageIndex,
 		setActivePageIndex,
-		activePageIndex = 0,
 		setIsMobileMenuOpen,
 	} = usePage();
-	const [shouldReanimate, setShouldReanimate] = useState(false);
 	return (
 		<div
-			className={`w-full max-w-screen-2xl flex z-30  h-[70px] bg-black flex-row justify-between items-center px-2 md:px-10`}>
-			<div className="flex-row flex justify-between items-center gap-1 mt-2 md:mt-0 ">
+			className={`w-full absolute duration-300 flex flex-col top-0 z-50 md:hidden h-screen transition-transform bg-black pt-10 ${
+				isMobileMenuOpen ? "translate-x-0" : "translate-x-full "
+			}`}>
+			<div className="flex-row flex justify-between items-center self-center gap-1 mt-2 mb-5 md:mt-0 ">
 				<h1
 					onMouseDown={() => setActivePageIndex(0)}
 					className="font-source-code text-2xl cursor-pointer font-extrabold text-[#9ffd32] ml-3 ">
 					sam.dev
 				</h1>
-				<GiSpiderWeb className="text-[#9ffd32] text-4xl mt-2 hidden " />
 			</div>
-			<div className="hidden md:flex flex-row justify-between items-center  w-full md:w-1/2 max-w-[400px]">
+			<div className="flex flex-col justify-between items-center  w-full md:w-1/2 max-w-[600px] gap-2">
 				{MENUS.map((menu, index: number) => {
 					const isActive = activePageIndex === index;
 					return (
 						<button
 							onClick={() => {
 								setActivePageIndex(index);
-								setShouldReanimate(!shouldReanimate);
+								setIsMobileMenuOpen(false);
 							}}
 							key={index}
 							className={`cursor-pointer ${
@@ -45,11 +47,7 @@ const MenuBarV2 = ({}) => {
 					);
 				})}
 			</div>
-			<GiHamburgerMenu
-				onMouseDown={() => setIsMobileMenuOpen(true)}
-				className="text-green-400 text-lg mt-2 md:hidden "
-			/>
 		</div>
 	);
 };
-export default MenuBarV2;
+export default MobileMenu;
