@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { FieldErrors, UseFormSetValue } from "react-hook-form";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { ContactFormType } from "../HomePage/Contact";
 
 interface CustomSelectProps {
@@ -26,16 +27,17 @@ const CustomSelect: FC<CustomSelectProps> = ({
 		setSelected(option); // Update local state
 		setValue(name, option, {
 			shouldDirty: true,
-		}); // Use setValue to update the form value
-		setIsOpen(false); // Close the dropdown
+		});
+		setIsOpen(false);
 	};
 
 	return (
 		<div className="relative">
 			<div
 				onClick={toggleDropdown}
-				className="text-white bg-transparent border-b border-white w-full max-w-[600px] py-2 cursor-pointer">
-				<span>{selected}</span> {/* Display the selected value */}
+				className="relative text-white bg-transparent border-b border-white w-full max-w-[600px] py-2 cursor-pointer">
+				<span className="select-none">{selected}</span>
+				<TiArrowSortedDown className="text-white absolute right-1 top-3 text-lg" />
 			</div>
 
 			{isOpen && (

@@ -1,42 +1,33 @@
 "use client";
-import ExperienceScreen from "@/components/HomePage/Experience";
 import ContactSection from "@/components/HomePage/Contact";
-import IntroductionScreen from "@/components/HomePage/IntroductionScreen";
+import ExperienceScreen from "@/components/HomePage/Experience";
 import ProjectScreen from "@/components/HomePage/ProjectScreen";
+import HomePageV2 from "@/components/HomePageV2";
+import { usePage } from "@/context/PathProvider";
 
 export default function Home() {
-	// useEffect(() => {
-	// 	const observer = new IntersectionObserver(
-	// 		(entries) => {
-	// 			entries.forEach((entry) => {
-	// 				// If the section is partially visible (more than 50% visible)
-	// 				if (entry.isIntersecting && entry.intersectionRatio < 1) {
-	// 					entry.target.scrollIntoView({
-	// 						behavior: "smooth",
-	// 						block: "start",
-	// 					});
-	// 				}
-	// 			});
-	// 		},
-	// 		{
-	// 			threshold: [0.5], // Trigger when at least 50% of the section is visible
-	// 		}
-	// 	);
+	const { activePageIndex } = usePage();
 
-	// 	const sections = document.querySelectorAll("section");
-	// 	sections.forEach((section) => observer.observe(section));
+	const pages = [
+		<HomePageV2 key={0} />,
+		<ProjectScreen key={1} />,
+		<ExperienceScreen key={2} />,
+		<ContactSection key={3} />,
+	];
 
-	// 	return () => {
-	// 		// Cleanup the observer on component unmount
-	// 		sections.forEach((section) => observer.unobserve(section));
-	// 	};
-	// }, []);
 	return (
-		<div className="w-full px-5  h-auto ">
-			<IntroductionScreen />
-			<ProjectScreen />
-			<ExperienceScreen />
-			<ContactSection />
+		<div className="relative w-full min-h-[calc(100vh-70px)] h-auto z-10 ">
+			<div
+				className="absolute w-full inset-0 flex transition-transform duration-500 ease-in-out"
+				style={{
+					transform: `translateX(-${activePageIndex * 100}%)`,
+				}}>
+				{pages.map((customPage, index) => (
+					<div key={index} className={`w-full h-auto  flex-shrink-0 `}>
+						{index === activePageIndex && customPage}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }

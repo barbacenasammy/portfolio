@@ -1,10 +1,11 @@
-import type { FC } from "react";
+"use client";
+import { useState, type FC } from "react";
 
 const Experience = [
 	{
-		position: "Full-Stack Web Developer",
+		position: "Junior Full-Stack Web Developer",
 		company: "Play It Fwd Pte Ltd.",
-		date: "Mar 2022 - Present",
+		date: "Mar 2022 - January 2025",
 		responsibilities: [
 			"Overseeing the full software development life cycle, from conceptionto deployment and post-launch maintenance.",
 			"Managing development stages, including analysis, coding, testing, and deployment.",
@@ -24,6 +25,17 @@ const Experience = [
 		],
 	},
 	{
+		position: "Sales and Technical Support",
+		company: "The Joshua Corporation",
+		date: "May 2016 - Oct 2019",
+		responsibilities: [
+			"Installing, configuring, and maintaining software programs to ensure smooth operations.",
+			"Design and Create Promotional Posters for Sales Campaigns.",
+			"Handling sales processes, managing customer inquiries, and providing assistance to ensure a positive user experience.",
+			"Overseeing daily inventory and sales tracking, ensuring accurate reporting and efficient stock management.",
+		],
+	},
+	{
 		position: "Programmer",
 		company: "Tabaco-Liberty Commercial Center, Inc",
 		date: "Jun 2015 - Jan 2016",
@@ -37,37 +49,48 @@ const Experience = [
 ];
 
 const ExperienceScreen: FC = ({}) => {
+	const [expandedIndex, setExpandedIndex] = useState<number>(0);
 	return (
-		<section
-			id="experience"
-			className="w-full h-auto pt-20 lg:pt-24 flex flex-col gap-4">
-			<h1 className="text-[30px] lg:text-[60px]">Experience</h1>
+		<div className="w-full overflow-auto flex flex-col gap-4 pb-5 px-10 mt-10 font-source-code">
+			<h1 className="relative text-[25px] lg:text-[50px] font-source-code font-[900] text-[#2323ff] text-shadow-lg  text-shadow-blue-400">
+				My Digital <span className="text-[#ff073a]">Awakening</span>
+				<span className="absolute top-0.5 ext-[25px] lg:text-[50px] -left-0.5 text-blue-300 font-extrabold -z-30">
+					My Digital <span className="text-red-300">Awakening</span>
+				</span>
+			</h1>
 			{Experience.map((experience, index) => {
+				const isExpanded = expandedIndex === index + 1;
 				return (
 					<div
+						onMouseDown={() =>
+							setExpandedIndex((prev) => (prev === index + 1 ? 0 : index + 1))
+						}
 						key={index}
-						className="w-full relative max-w-[800px] border border-gray-600 px-4 py-2 md:px-10 md:py-5 rounded-md bg-gray-600 bg-opacity-45 backdrop-blur-md">
+						className={`w-full transition-max-height duration-1000 ease-out cursor-pointer relative max-w-[800px] border border-black px-4 py-2 md:px-10 md:py-5 rounded-md bg-gray-600 bg-opacity-45 backdrop-blur-md overflow-hidden ${
+							isExpanded ? "max-h-fit pb-5" : "max-h-[120px] pb-0"
+						}`}>
 						<h4 className="font-bold text-lg lg:text-2xl">
 							{experience.position}
 						</h4>
-						<h6 className="font-semibold text-sm lg:text-base">
+						<h6 className="font-semibold text-sm lg:text-base text-gray-300">
 							{experience.company}
 						</h6>
-						<h6 className="text-xs lg:text-sm text-gray-400">
+						<h6 className="text-xs lg:text-sm text-green-400 font-bold">
 							{experience.date}
 						</h6>
-						<h6 className="mt-2 text-[12px] lg:text-[14px]">
-							Responsibilities:
-						</h6>
-						<ol className="list-disc ml-5 text-[12px] lg:text-[14px] font-thin">
-							{experience.responsibilities.map((responsibility, index) => {
-								return <li key={index}>{responsibility}</li>;
-							})}
+
+						<ol
+							className={`list-disc ml-5 font-source-code text-gray-300 text-[12px] lg:text-[14px] font-thin mt-5 ${
+								isExpanded ? "block" : "hidden"
+							}`}>
+							{experience.responsibilities.map((responsibility, index) => (
+								<li key={index}>{responsibility}</li>
+							))}
 						</ol>
 					</div>
 				);
 			})}
-		</section>
+		</div>
 	);
 };
 export default ExperienceScreen;

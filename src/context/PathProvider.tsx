@@ -1,47 +1,30 @@
 "use client";
-import { usePathname } from "next/navigation";
 import {
 	createContext,
+	Dispatch,
 	ReactNode,
+	SetStateAction,
 	useContext,
-	useEffect,
 	useState,
 	type FC,
 } from "react";
 
-export interface PathProviderState {
-	currentHash: string;
+export interface PageProviderState {
+	activePageIndex: number;
+	setActivePageIndex: Dispatch<SetStateAction<number>>;
 }
-export const PathContext = createContext<PathProviderState>(
-	{} as PathProviderState
+export const PathContext = createContext<PageProviderState>(
+	{} as PageProviderState
 );
-export function usePath(): PathProviderState {
+export function usePage(): PageProviderState {
 	return useContext(PathContext);
 }
-const PathProvider: FC<{ children: ReactNode }> = ({ children }) => {
-	const [currentHash, setCurrentHash] = useState<string>("");
-	const pathName = usePathname();
-
-	useEffect(() => {
-		const handleHashChange = () => {
-			setCurrentHash(window.location.hash || "#");
-		};
-
-		// Listen to 'hashchange' events
-		window.addEventListener("hashchange", handleHashChange);
-
-		// Handle initial load in case there is already a hash in the URL
-		handleHashChange();
-
-		return () => {
-			window.removeEventListener("hashchange", handleHashChange);
-		};
-	}, [pathName]);
-
+const PageProvider: FC<{ children: ReactNode }> = ({ children }) => {
+	const [activePageIndex, setActivePageIndex] = useState(0);
 	return (
-		<PathContext.Provider value={{ currentHash }}>
+		<PathContext.Provider value={{ activePageIndex, setActivePageIndex }}>
 			{children}
 		</PathContext.Provider>
 	);
 };
-export default PathProvider;
+export default PageProvider;
