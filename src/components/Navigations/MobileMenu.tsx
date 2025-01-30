@@ -1,12 +1,9 @@
 "use client";
 import { MENUS } from "@/contants/menus";
 import { usePage } from "@/context/PathProvider";
-import type { FC } from "react";
 import MatrixTextAnimation from "../TextAnimation/MatrixTextAnimation";
 
-interface MobileMenuProps {}
-
-const MobileMenu: FC<MobileMenuProps> = ({}) => {
+const MobileMenu = () => {
 	const {
 		isMobileMenuOpen,
 		activePageIndex,
