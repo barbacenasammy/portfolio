@@ -283,11 +283,11 @@ export type ProjectType = (typeof Projects)[0];
 
 const ProjectScreen = ({}) => {
 	return (
-		<div className="w-full p-0  h-auto  flex flex-col gap-5  md:px-10 ">
-			<h1 className="text-[25px] lg:text-[40px] mt-5 ml-5 md:ml-10 font-source-code">
+		<div className="w-full p-0  h-auto  flex flex-col  gap-5  md:px-10 ">
+			<h1 className="text-[25px] text-center md:text-left md:text-[40px] text-white mt-5 ml-5 md:ml-10 font-source-code">
 				Code in the Matrix
 			</h1>
-			<div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-1 px-5 md:px-10">
+			<div className="relative grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-1 px-5 md:px-10 justify-items-center md:justify-items-start">
 				{Projects.map((project, index) => {
 					return <ProjectCards key={index} project={project} />;
 				})}

@@ -16,7 +16,7 @@ export default function Home() {
 	];
 
 	return (
-		<div className="relative w-full min-h-[calc(100vh-70px)] h-auto z-10 overflow-hidden">
+		<div className="relative w-full min-h-[calc(100vh-70px)] h-auto z-10 overflow-y-auto md:overflow-hidden">
 			<div
 				className="absolute w-full h-full flex transition-transform duration-500 ease-in-out"
 				style={{
