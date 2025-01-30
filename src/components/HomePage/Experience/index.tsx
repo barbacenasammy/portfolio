@@ -51,7 +51,7 @@ const Experience = [
 const ExperienceScreen: FC = ({}) => {
 	const [expandedIndex, setExpandedIndex] = useState<number>(0);
 	return (
-		<div className="w-full overflow-auto flex flex-col gap-4 pb-5 px-10 mt-10 font-source-code">
+		<div className="w-full overflow-auto flex flex-col gap-2 md:gap-4 pb-5 px-10 mt-10 font-source-code">
 			<h1 className="relative text-[25px] lg:text-[50px] font-source-code font-[900] text-[#2323ff] text-shadow-lg  text-shadow-blue-400">
 				My Digital <span className="text-[#ff073a]">Awakening</span>
 				<span className="absolute top-0.5 ext-[25px] lg:text-[50px] -left-0.5 text-blue-300 font-extrabold -z-30">
@@ -67,7 +67,9 @@ const ExperienceScreen: FC = ({}) => {
 						}
 						key={index}
 						className={`w-full transition-max-height duration-1000 ease-out cursor-pointer relative max-w-[800px] border border-black px-4 py-2 md:px-10 md:py-5 rounded-md bg-gray-600 bg-opacity-45 backdrop-blur-md overflow-hidden ${
-							isExpanded ? "max-h-fit pb-5" : "max-h-[120px] pb-0"
+							isExpanded
+								? "max-h-fit pb-5"
+								: "max-h-[180px] md:max-h-[120px] pb-5"
 						}`}>
 						<h4 className="font-bold text-lg lg:text-2xl">
 							{experience.position}

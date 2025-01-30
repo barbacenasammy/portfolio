@@ -23,7 +23,7 @@ export function usePage(): PageProviderState {
 }
 const PageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	const [activePageIndex, setActivePageIndex] = useState(0);
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	return (
 		<PathContext.Provider
 			value={{
